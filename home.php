@@ -1,7 +1,6 @@
 <?php 
 require './vendor/autoload.php';
 
-
 $redis = new Predis\Client();
 $redis->connect('127.0.0.1', 6379);
 
@@ -22,7 +21,11 @@ $cache_key = md5($sql);
                 $db_password = '';
                 $db_host     = 'localhost:3306';
 
+
                 $pdo = new PDO('mysql:host=' . $db_host . '; dbname=' . $db_name, $unmae, $db_password);
+
+                $pdo = new PDO('mysql:host=' . $db_host . '; dbname=' . $db_name, $db_user, $db_password);
+
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                 $stmt = $pdo->prepare($sql);
@@ -35,6 +38,7 @@ $cache_key = md5($sql);
 
                 $redis->set($cache_key, serialize($data)); 
                 $redis->expire($cache_key, 86,400);        
+
            } 
 
 session_start();
@@ -46,7 +50,6 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 <html>
 <head>
 	<title>HOME</title>
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
      <link rel="icon" href="img/websitelogo.png">
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
