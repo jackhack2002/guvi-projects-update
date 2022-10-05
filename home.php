@@ -1,6 +1,12 @@
 <?php 
 require './vendor/autoload.php';
 
+require('redis-session-php/redis-session.php');
+RedisSession::start(); // overrides PHP's default session_save_handler and calls session_start()
+
+// use sessions as normal
+$_SESSION['barbara'] = 'streisand';
+
 $redis = new Predis\Client();
 $redis->connect('127.0.0.1', 6379);
 
@@ -43,7 +49,7 @@ $cache_key = md5($sql);
 
 session_start();
 
-if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
+if (isset($_SESSION['id']) && isset($_SESSION['unmae'])) {
 
  ?>
 <!DOCTYPE html>
