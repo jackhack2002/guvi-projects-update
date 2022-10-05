@@ -24,7 +24,7 @@ $cache_key = md5($sql);
 
                 $pdo = new PDO('mysql:host=' . $db_host . '; dbname=' . $db_name, $unmae, $db_password);
 
-                $pdo = new PDO('mysql:host=' . $db_host . '; dbname=' . $db_name, $db_user, $db_password);
+                $pdo = new PDO('mysql:host=' . $db_host . '; dbname=' . $db_name, $unmae, $db_password);
 
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
