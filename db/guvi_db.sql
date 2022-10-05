@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `test_db`
+-- Database: `guvi`
 --
 
 -- --------------------------------------------------------
@@ -39,7 +39,7 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `user_name`, `password`, `name`) VALUES
+INSERT INTO `users` (`id`, `user_name`, `password`, `name`,'email', 'dob') VALUES
 (3, 'ela', '202cb962ac59075b964b07152d234b70', 'Ela'),
 (4, 'elias', '202cb962ac59075b964b07152d234b70', 'elias');
 
